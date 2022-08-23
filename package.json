@@ -1,0 +1,27 @@
+{
+  "name": "bootcamp-node",
+  "version": "1.0.0",
+  "description": "devcamper backend api",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caioh123/bootcamp-node.git"
+  },
+  "author": "Caio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caioh123/bootcamp-node/issues"
+  },
+  "homepage": "https://github.com/caioh123/bootcamp-node#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
