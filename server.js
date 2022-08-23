@@ -1,35 +1,22 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const bootcamps = require("./routes/bootcamps");
+const morgan = require("morgan");
+
+const connectDb = require("./config/db");
 
 dotenv.config({ path: "./config/config.env" });
+connectDb();
+
+console.log(process.env.NODE_ENV);
 
 const app = express();
 
-app.get("/api/v1/bootcamps", (req, res) => {
-  res.status(200).json({ success: true, message: "show all bootcamp" });
-});
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 
-app.get("/api/v1/bootcamps/:id", (req, res) => {
-  res
-    .status(200)
-    .json({ success: true, message: `get bootcamp ${req.params.id}` });
-});
-
-app.post("/api/v1/bootcamps", (req, res) => {
-  res.status(200).json({ success: true, message: "create new bootcamp" });
-});
-
-app.put("/api/v1/bootcamps/:id", (req, res) => {
-  res
-    .status(200)
-    .json({ success: true, message: `update bootcamp ${req.params.id}` });
-});
-
-app.delete("/api/v1/bootcamps/:id", (req, res) => {
-  res
-    .status(200)
-    .json({ success: true, message: `delete bootcamp ${req.params.id}` });
-});
+app.use("/api/v1/bootcamps", bootcamps);
 
 const PORT = process.env.PORT || 5000;
 
