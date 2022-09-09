@@ -1,14 +1,14 @@
 const express = require("express");
 const dotenv = require("dotenv");
+dotenv.config({ path: "./config/config.env" });
 const bootcamps = require("./routes/bootcamps");
 const morgan = require("morgan");
 const errorHandler = require("./middleware/error");
 const connectDb = require("./config/db");
 
-dotenv.config({ path: "./config/config.env" });
 connectDb();
 
-console.log(process.env.NODE_ENV);
+console.log("aqio", process.env.NODE_ENV);
 
 const app = express();
 
