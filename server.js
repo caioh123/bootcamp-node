@@ -7,7 +7,6 @@ const errorHandler = require("./middleware/error");
 const connectDb = require("./config/db");
 
 connectDb();
-console.log("aqio", process.env.NODE_ENV);
 
 const app = express();
 
